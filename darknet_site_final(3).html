@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darknet - A solução que você precisa</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: black;
+      color: white;
+      text-align: center;
+    }
+    header {
+      padding: 2rem;
+    }
+    .logo {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: white;
+    }
+    .net {
+      color: red;
+    }
+    .slogan {
+      font-size: 1.2rem;
+      color: white;
+      margin-top: -1rem;
+    }
+    .intro {
+      font-size: 1rem;
+      color: #ccc;
+      margin-top: 1rem;
+    }
+    .menu {
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .menu button {
+      padding: 1rem 2rem;
+      border: 2px solid white;
+      background: black;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .menu button:hover {
+      background: white;
+      color: black;
+    }
+    section {
+      margin: 2rem 1rem;
+      color: white;
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #ff0000;
+    }
+    tr:nth-child(even) {
+      background-color: #2a2a2a;
+    }
+    .custom-form input, .custom-form select {
+      padding: 0.5rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+    }
+    .faq, .support {
+      background: #111;
+      color: #eee;
+      padding: 2rem;
+      margin: 2rem auto;
+      border-radius: 10px;
+      max-width: 800px;
+    }
+    footer {
+      text-align: center;
+      background: black;
+      padding: 2rem 1rem;
+      color: #aaa;
+    }
+    footer img {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo-darknet.png" alt="Logo Darknet" class="logo" />
+    <h1>Dark<span class="net">net</span></h1>
+    <div class="slogan">a solução que você precisa</div>
+    <div class="intro">Escolha o pacote que deseja e efectue o pagamento</div>
+  </header>
+
+  <div class="menu">
+    <button onclick="mostrarSecao('internet')">🌐 Internet</button>
+    <button onclick="mostrarSecao('saldo')">💰 Saldo</button>
+    <button onclick="mostrarSecao('sms')">📨 SMS</button>
+    <button onclick="mostrarSecao('personalizado')">✨ Personalizado</button>
+  </div>
+
+  <section id="internet" style="display:none">
+    <h2>Pacotes de Internet</h2>
+    <table>
+      <tr><th>Tamanho</th><th>Preço</th></tr>
+      <tr><td>275MB</td><td>5MT</td></tr>
+      <tr><td>550MB</td><td>10MT</td></tr>
+      <tr><td>825MB</td><td>15MT</td></tr>
+      <tr><td>1.1GB</td><td>20MT</td></tr>
+    </table>
+  </section>
+
+  <section id="saldo" style="display:none">
+    <h2>Pacotes de Saldo</h2>
+    <table>
+      <tr><th>Valor</th><th>Preço</th></tr>
+      <tr><td>10MT</td><td>10MT</td></tr>
+      <tr><td>20MT</td><td>20MT</td></tr>
+      <tr><td>50MT</td><td>50MT</td></tr>
+    </table>
+  </section>
+
+  <section id="sms" style="display:none">
+    <h2>Pacotes de SMS</h2>
+    <table>
+      <tr><th>Quantidade</th><th>Preço</th></tr>
+      <tr><td>10 SMS</td><td>5MT</td></tr>
+      <tr><td>30 SMS</td><td>12MT</td></tr>
+      <tr><td>50 SMS</td><td>18MT</td></tr>
+    </table>
+  </section>
+
+  <section id="personalizado" class="custom-form" style="display:none">
+    <h2>Plano Personalizado</h2>
+    <select id="tipoPersonalizado">
+      <option value="internet">Internet (mín. 10GB)</option>
+      <option value="saldo">Saldo</option>
+      <option value="sms">SMS</option>
+    </select><br>
+    <input type="number" id="quantidadePersonalizada" placeholder="Digite a quantidade desejada" />
+    <p>Total estimado: <strong id="resultadoPreco">0MT</strong></p>
+  </section>
+
+  <section class="faq">
+    <h3>❓ Perguntas Frequentes</h3>
+    <p><strong>Como recebo meu pacote?</strong><br>Pelo número fornecido após o pagamento.</p>
+    <p><strong>Posso pagar por M-Pesa?</strong><br>Sim! É nosso principal método.</p>
+  </section>
+
+  <section class="support">
+    <h3>📩 Suporte & Reclamações</h3>
+    <p>Se tiver problemas com seu pedido, envie um e-mail para suporte@darknet.com</p>
+  </section>
+
+  <footer>
+    <img src="logo-darknet.png" class="logo" />
+    <p>+5.300 pacotes vendidos</p>
+  </footer>
+
+  <script>
+    function mostrarSecao(secao) {
+      document.querySelectorAll('section').forEach(s => s.style.display = 'none');
+      document.getElementById(secao).style.display = 'block';
+    }
+
+    document.getElementById('quantidadePersonalizada').addEventListener('input', () => {
+      const tipo = document.getElementById('tipoPersonalizado').value;
+      const qtd = parseFloat(document.getElementById('quantidadePersonalizada').value) || 0;
+      let preco = 0;
+      if (tipo === 'internet' && qtd >= 10) preco = qtd * 8;
+      else if (tipo === 'saldo') preco = qtd;
+      else if (tipo === 'sms') preco = qtd * 0.5;
+      document.getElementById('resultadoPreco').textContent = preco + 'MT';
+    });
+  </script>
+</body>
+</html>
